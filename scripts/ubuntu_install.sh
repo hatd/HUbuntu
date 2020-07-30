@@ -6,10 +6,12 @@ initializer(){
 }
 
 update_bash(){
-  # git_complete="https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
+  git_complete="https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
+  sudo curl $git_complete -o /etc/bash_completion.d/git-completion.bash
 
-  # sudo curl $git_complete > /etc/bash_completion.d/git-completion.bash
   cp -b bash/bash_aliases ~/.bash_aliases
+  #to fix your line endings
+  sed -i 's/\r//' ~/.bash_aliases
 }
 
 run_all(){
